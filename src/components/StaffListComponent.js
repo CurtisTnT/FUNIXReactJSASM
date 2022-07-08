@@ -72,6 +72,17 @@ class Staffs extends Component {
     );
   }
 
+  render3Cols() {
+    return (
+      document
+        .querySelectorAll(".staffs")
+        .forEach((staff) => staff.classList.remove("col-lg-2", "col-lg-6")),
+      document
+        .querySelectorAll(".staffs")
+        .forEach((staff) => staff.classList.add("col-lg-4"))
+    );
+  }
+
   render6Cols() {
     return (
       document
