@@ -11,6 +11,12 @@ class Staffs extends Component {
     };
   }
 
+  onStaffSelect(staff) {
+    this.setState({
+      selectedStaff: staff,
+    });
+  }
+
   renderStaff(staff) {
     if (staff != null) {
       const doB = dateFormat(staff.doB, "dd/mm/yyyy");
