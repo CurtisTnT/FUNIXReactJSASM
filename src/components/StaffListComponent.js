@@ -116,13 +116,13 @@ class Staffs extends Component {
         <div className="row">{this.renderStaff(this.state.selectedStaff)}</div>
         <div className="row view text-decor">
           <h5>Thay đổi view hiển thị:</h5>
-          <button className="col-1 m-1" onClick={this.render2Cols}>
+          <button className="col-2 m-1" onClick={this.render2Cols}>
             2 cột
           </button>
-          <button className="col-1 m-1" onClick={this.render3Cols}>
+          <button className="col-2 m-1" onClick={this.render3Cols}>
             3 cột
           </button>
-          <button className="col-1 m-1" onClick={this.render6Cols}>
+          <button className="col-2 m-1" onClick={this.render6Cols}>
             6 cột
           </button>
         </div>
