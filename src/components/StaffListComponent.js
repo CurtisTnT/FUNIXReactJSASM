@@ -83,17 +83,6 @@ class Staffs extends Component {
     );
   }
 
-  render6Cols() {
-    return (
-      document
-        .querySelectorAll(".staffs")
-        .forEach((staff) => staff.classList.remove("col-lg-4", "col-lg-6")),
-      document
-        .querySelectorAll(".staffs")
-        .forEach((staff) => staff.classList.add("col-lg-2"))
-    );
-  }
-
   render() {
     const list = this.props.staffs.map((staff) => {
       return (
