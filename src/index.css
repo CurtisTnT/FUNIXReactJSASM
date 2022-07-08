@@ -12,7 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/*Trang trí staffs*/
+/*CSS staffs*/
 .staffs-background {
   border-radius: 0.8rem;
   background-color: #f79ea5ce;
@@ -26,9 +26,14 @@ code {
   font-weight: bold;
   font-size: 18px;
 }
+/*CSS selected-staffs*/
 .selected-staff-border {
   background-color: #fad1d4ce;
 }
+span {
+  font-weight: bold;
+}
+
 .text-decor {
   color: rgba(226, 55, 155, 0.74);
 }
@@ -39,7 +44,4 @@ button {
   border: 2px dashed rgb(236, 123, 123);
   border-radius: 0.25rem;
   color: rgb(230, 77, 166);
-}
-span {
-  font-weight: bold;
 }
