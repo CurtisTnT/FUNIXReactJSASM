@@ -14,17 +14,18 @@ code {
 }
 /*CSS staffs*/
 .staffs-background {
-  border-radius: 0.8rem;
   background-color: #f79ea5ce;
 }
 .staffs-border {
   border: 3px solid rgb(187, 60, 60);
-  border-radius: 1rem;
 }
 .card-title {
   text-align: center;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
+}
+.card-body {
+  padding: 1rem;
 }
 /*CSS selected-staffs*/
 .selected-staff-border {
@@ -35,7 +36,7 @@ span {
 }
 /*CSS text*/
 .text-decor {
-  color: rgba(226, 55, 155, 0.74);
+  color: rgb(209, 21, 146);
 }
 /*CSS thay đổi view*/
 .view {
@@ -45,4 +46,29 @@ button {
   border: 2px dashed rgb(236, 123, 123);
   border-radius: 0.25rem;
   color: rgb(230, 77, 166);
+}
+
+/*CSS Header*/
+.navbar-expand-md {
+  background-color: #f79ea5ce;
+}
+a {
+  color: white;
+}
+.header-text {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+input {
+  border: none;
+  width: 35rem;
+}
+
+/*CSS Footer*/
+.footer {
+  background-color: #f79ea5ce;
+}
+address {
+  margin-bottom: 0;
 }
