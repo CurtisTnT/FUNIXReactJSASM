@@ -1,0 +1,46 @@
+import React from "react";
+import {
+  Card,
+  CardTitle,
+  CardText,
+  Breadcrumb,
+  BreadcrumbItem,
+  CardHeader,
+} from "reactstrap";
+
+function RenderPayroll({ staff }) {
+  return (
+    <Card className="card-css">
+      <CardTitle className="ml-3">{staff.name}</CardTitle>
+      <CardText className="offset-3">Mã nhân viên: {staff.id}</CardText>
+      <CardText className="offset-3">Hệ số lương: {staff.salaryScale}</CardText>
+      <CardText className="offset-3 mb-4">
+        Số ngày làm thêm: {staff.overTime}
+      </CardText>
+      <CardHeader className="mr-5 ml-5 mb-2 text-center">
+        Lương:{" "}
+        {Math.round(staff.salaryScale * 3000000 + staff.overTime * 200000)}
+      </CardHeader>
+    </Card>
+  );
+}
+
+function Payroll(props) {
+  const payroll = props.staffs.map((staff) => {
+    return (
+      <div className="col-12 col-md-6 col-lg-4 mb-3">
+        <RenderPayroll staff={staff} />
+      </div>
+    );
+  });
+  return (
+    <div className="container-fluid">
+      <Breadcrumb>
+        <BreadcrumbItem active>Bảng lương</BreadcrumbItem>
+      </Breadcrumb>
+      <div className="row">{payroll}</div>
+    </div>
+  );
+}
+
+export default Payroll;

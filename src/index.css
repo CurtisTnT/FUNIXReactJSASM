@@ -37,6 +37,11 @@ span {
 /*CSS text*/
 .text-decor {
   color: rgb(209, 21, 146);
+  font-size: 1.2rem;
+}
+.text-decor .card-title {
+  text-align: left;
+  font-size: 30px;
 }
 /*CSS thay đổi view*/
 .view {
@@ -52,9 +57,7 @@ button {
 .navbar-expand-md {
   background-color: #f79ea5ce;
 }
-a {
-  color: white;
-}
+
 .header-text {
   font-size: 1.5rem;
   color: white;
@@ -64,6 +67,9 @@ input {
   border: none;
   width: 35rem;
 }
+form {
+  font-size: 1.25rem;
+}
 
 /*CSS Footer*/
 .footer {
@@ -71,4 +77,37 @@ input {
 }
 address {
   margin-bottom: 0;
+}
+
+/*CSS Breadcrumb*/
+.breadcrumb-item a {
+  color: rgb(209, 21, 146);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.breadcrumb-item.active {
+  color: rgb(209, 21, 146);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/*CSS card*/
+.card-css {
+  border: 3px solid rgb(236, 123, 123);
+  border-radius: 20px;
+  background-color: #fde2e4ce;
+}
+.card-css .card-title {
+  text-align: left;
+  color: rgb(209, 21, 146);
+  font-size: 2rem;
+}
+.card-css .card-text {
+  font-size: 1.5rem;
+  color: rgb(207, 79, 154);
+}
+.card-css .card-header {
+  font-size: 1.5rem;
+  color: rgb(207, 79, 154);
+  font-weight: bold;
 }

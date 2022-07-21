@@ -14,7 +14,7 @@ class Header extends Component {
     return (
       <div>
         <Navbar expand="md">
-          <div className="container">
+          <div className="container-fluid">
             <NavbarToggler />
             <NavbarBrand href="/">
               <img
@@ -26,19 +26,19 @@ class Header extends Component {
             </NavbarBrand>
             <Collapse navbar>
               <Nav navbar>
-                <NavItem className="border-right border-light header-text">
-                  <NavLink className="nav-link" to="/nhanvien">
+                <NavItem className="border-right border-light">
+                  <NavLink className="nav-link header-text" to="/nhanvien">
                     <span className="fa fa-users fa-lg mr-2"></span>Nhân viên
                   </NavLink>
                 </NavItem>
-                <NavItem className="border-right border-light header-text">
-                  <NavLink className="nav-link" to="/phongban">
+                <NavItem className="border-right border-light">
+                  <NavLink className="nav-link header-text" to="/phongban">
                     <span className="fa fa-address-card fa-lg mr-2"></span>Phòng
                     ban
                   </NavLink>
                 </NavItem>
-                <NavItem className="header-text">
-                  <NavLink className="nav-link" to="/">
+                <NavItem>
+                  <NavLink className="nav-link header-text" to="/bangluong">
                     <span className="fa fa-money fa-lg mr-2"></span>Bảng lương
                   </NavLink>
                 </NavItem>
@@ -48,11 +48,21 @@ class Header extends Component {
         </Navbar>
         <Navbar className="d-flex justify-content-center">
           <form>
-            <button type="submit" className="mr-1">
+            <button
+              type="submit"
+              className="mr-1 btn-find"
+              onClick={() => {
+                this.props.onClick();
+              }}
+            >
               <span className="fa fa-search fa-lg mr-2"></span>
               Tìm kiếm
             </button>
-            <input type="search" placeholder="Tìm kiếm nhân viên..."></input>
+            <input
+              className="input-staff"
+              type="search"
+              placeholder="Tìm kiếm nhân viên..."
+            ></input>
           </form>
         </Navbar>
       </div>

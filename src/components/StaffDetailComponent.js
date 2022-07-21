@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  Card,
   CardBody,
+  CardTitle,
   CardText,
   CardImg,
   Breadcrumb,
@@ -12,12 +12,11 @@ import { Link } from "react-router-dom";
 
 function RenderStaffDetail({ staff }) {
   if (staff != null) {
-    console.log(staff);
     const doB = dateFormat(staff.doB, "dd/mm/yyyy");
     const startDate = dateFormat(staff.startDate, "dd/mm/yyyy");
     return (
-      <div className=" mt-3">
-        <Card className="selected-staff-border">
+      <div className=" my-3">
+        <div className="selected-staff-border row">
           <CardImg
             src={staff.image}
             alt={staff.name}
@@ -25,9 +24,7 @@ function RenderStaffDetail({ staff }) {
             className="col-12 col-md-4 col-lg-3"
           />
           <CardBody className="text-decor col-12 col-md-8 col-lg-9">
-            <CardText>
-              <h4>Họ và tên: {staff.name}</h4>
-            </CardText>
+            <CardTitle>Họ và tên: {staff.name}</CardTitle>
             <CardText>
               <span>Ngày sinh: </span>
               {doB}
@@ -49,30 +46,25 @@ function RenderStaffDetail({ staff }) {
               {staff.overTime}
             </CardText>
           </CardBody>
-        </Card>
+        </div>
       </div>
     );
   } else {
     return <div></div>;
   }
 }
-
 const StaffDetail = (props) => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row>">
         <Breadcrumb>
           <BreadcrumbItem>
             <Link to="/nhanvien">Nhân viên</Link>
           </BreadcrumbItem>
-          <BreadcrumbItem active>
-            <Link to={props.staff.name}></Link>
-          </BreadcrumbItem>
+          <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
         </Breadcrumb>
       </div>
-      <div className="row">
-        <RenderStaffDetail staff={props.staff} />
-      </div>
+      <RenderStaffDetail staff={props.staff} />
     </div>
   );
 };
