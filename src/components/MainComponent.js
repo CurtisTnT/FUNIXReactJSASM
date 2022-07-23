@@ -39,6 +39,21 @@ class Main extends Component {
     });
   }
 
+  ReverseStaff() {
+    const staffNameReversed = this.state.staffs
+      .map((staff) => staff.name)
+      .reverse();
+    let staffReversed = [];
+    for (let i = 0; i <= staffNameReversed.length - 1; i++) {
+      staffReversed.push(
+        this.state.staffs.find((staff) => staff.name === staffNameReversed[i])
+      );
+    }
+    this.setState({
+      staffs: staffReversed,
+    });
+  }
+
   StaffIdDecrease() {
     const idReverse = this.state.staffs.map((staff) => staff.id).reverse();
     let idDecrease = [];
