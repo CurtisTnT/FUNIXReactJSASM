@@ -74,6 +74,7 @@ class Main extends Component {
           staff={this.state.staffs.find(
             (staff) => staff.id === parseInt(match.params.staffId, 10)
           )}
+          onClick={() => this.Staff(this.state.staffs)}
         />
       );
     };

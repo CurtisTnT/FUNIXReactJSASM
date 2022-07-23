@@ -59,7 +59,9 @@ const StaffDetail = (props) => {
       <div className="row>">
         <Breadcrumb>
           <BreadcrumbItem>
-            <Link to="/nhanvien">Nhân viên</Link>
+            <Link to="/nhanvien" onClick={props.onClick}>
+              Nhân viên
+            </Link>
           </BreadcrumbItem>
           <BreadcrumbItem active>{props.staff.name}</BreadcrumbItem>
         </Breadcrumb>

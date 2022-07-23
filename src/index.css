@@ -111,3 +111,10 @@ address {
   color: rgb(207, 79, 154);
   font-weight: bold;
 }
+
+.navbar-toggler-icon {
+  background-color: #f16e79ce;
+}
+.navbar-toggler {
+  background-color: white;
+}
