@@ -49,6 +49,9 @@ class Main extends Component {
         this.state.staffs.find((staff) => staff.name === staffNameReversed[i])
       );
     }
+    this.setState({
+      staffs: staffReversed,
+    });
   }
 
   StaffIdDecrease() {
