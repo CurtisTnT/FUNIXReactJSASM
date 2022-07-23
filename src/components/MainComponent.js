@@ -17,22 +17,6 @@ class Main extends Component {
     };
   }
 
-  FindStaff(staffs) {
-    if (
-      typeof staffs.find(
-        (staff) => staff.name === document.querySelector(".input-staff").value
-      ) === "undefined"
-    ) {
-      alert("This staff's name does not exist! Please fill in again!");
-    } else {
-      this.setState({
-        staffs: staffs.filter(
-          (staff) => staff.name === document.querySelector(".input-staff").value
-        ),
-      });
-    }
-  }
-
   Staff() {
     this.setState({
       staffs: STAFFS,
