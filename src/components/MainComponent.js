@@ -17,14 +17,54 @@ class Main extends Component {
     };
   }
 
-  FindStaff() {
-    return (
-      <StaffDetail
-        staff={this.state.staffs.find(
-          (staff) => staff.name === document.querySelector(".input-find").value
-        )}
-      />
-    );
+  FindStaff(staffs) {
+    if (
+      typeof staffs.find(
+        (staff) => staff.name === document.querySelector(".input-staff").value
+      ) === "undefined"
+    ) {
+      alert("This staff's name does not exist! Please fill in again!");
+    } else {
+      this.setState({
+        staffs: staffs.filter(
+          (staff) => staff.name === document.querySelector(".input-staff").value
+        ),
+      });
+    }
+  }
+
+  Staff() {
+    this.setState({
+      staffs: STAFFS,
+    });
+  }
+
+  ReverseStaff() {
+    const staffNameReversed = this.state.staffs
+      .map((staff) => staff.name)
+      .reverse();
+    let staffReversed = [];
+    for (let i = 0; i <= staffNameReversed.length - 1; i++) {
+      staffReversed.push(
+        this.state.staffs.find((staff) => staff.name === staffNameReversed[i])
+      );
+    }
+    this.setState({
+      staffs: staffReversed,
+    });
+  }
+
+  StaffIdDecrease() {
+    const idReverse = this.state.staffs.map((staff) => staff.id).reverse();
+    let idDecrease = [];
+    for (let i = 0; i <= idReverse.length - 1; i++) {
+      idDecrease.push(
+        this.state.staffs.find((staff) => staff.id === idReverse[i])
+      );
+    }
+    this.setState({
+      staffs: idDecrease,
+    });
   }
 
   render() {
@@ -40,17 +80,30 @@ class Main extends Component {
 
     return (
       <div>
-        <Header onClick={this.FindStaff} />
+        <Header onClick={() => this.Staff(this.state.staffs)} />
         <Switch>
           <Route
             exact
             path="/nhanvien"
-            component={() => <Staffs staffs={this.state.staffs} />}
+            component={() => (
+              <Staffs
+                staffs={this.state.staffs}
+                onClick={() => this.FindStaff(this.state.staffs)}
+                onClick1={() => this.Staff(this.state.staffs)}
+                onClick2={() => this.ReverseStaff(this.state.staffs)}
+              />
+            )}
           />
           <Route path="/nhanvien/:staffId" component={StaffWithId} />
           <Route
             path="/bangluong"
-            component={() => <Payroll staffs={this.state.staffs} />}
+            component={() => (
+              <Payroll
+                staffs={this.state.staffs}
+                onClick={() => this.Staff(this.state.staffs)}
+                onClick1={() => this.StaffIdDecrease(this.state.staffs)}
+              />
+            )}
           />
           <Route exact path="/phongban" component={Department} />
           <Redirect to="/nhanvien" />

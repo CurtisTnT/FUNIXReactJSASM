@@ -36,7 +36,7 @@ class Departments extends Component {
       );
     });
     return (
-      <div className="container-fluid">
+      <div className="container-fluid main-body">
         <Breadcrumb>
           <BreadcrumbItem active>Phòng ban</BreadcrumbItem>
         </Breadcrumb>

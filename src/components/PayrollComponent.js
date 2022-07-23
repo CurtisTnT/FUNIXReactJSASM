@@ -34,11 +34,22 @@ function Payroll(props) {
     );
   });
   return (
-    <div className="container-fluid">
+    <div className="container-fluid main-body">
       <Breadcrumb>
         <BreadcrumbItem active>Bảng lương</BreadcrumbItem>
       </Breadcrumb>
       <div className="row">{payroll}</div>
+      <div className="row view text-decor mb-2">
+        <h5 className="ml-3">Sắp xếp id nhân viên theo thứ tự:</h5>
+      </div>
+      <div className="row text-decor">
+        <button className="col-1 m-1" onClick={props.onClick}>
+          Tăng
+        </button>
+        <button className="col-1 m-1" onClick={props.onClick1}>
+          Giảm
+        </button>
+      </div>
     </div>
   );
 }

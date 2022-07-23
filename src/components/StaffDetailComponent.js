@@ -55,7 +55,7 @@ function RenderStaffDetail({ staff }) {
 }
 const StaffDetail = (props) => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid main-body">
       <div className="row>">
         <Breadcrumb>
           <BreadcrumbItem>
