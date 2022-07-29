@@ -18,7 +18,11 @@ class Main extends Component {
   }
 
   FindStaff(staffs) {
-    if (
+    if (document.querySelector(".input-staff").value === "") {
+      this.setState({
+        staffs: STAFFS,
+      });
+    } else if (
       typeof staffs.find(
         (staff) => staff.name === document.querySelector(".input-staff").value
       ) === "undefined"
