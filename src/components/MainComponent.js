@@ -15,23 +15,32 @@ class Main extends Component {
     this.state = {
       staffs: STAFFS,
     };
+    this.FindStaff = this.FindStaff.bind(this);
   }
 
   FindStaff(staffs) {
     if (document.querySelector(".input-staff").value === "") {
       this.setState({
-        staffs: STAFFS,
+        staffs: staffs,
       });
     } else if (
-      typeof staffs.find(
-        (staff) => staff.name === document.querySelector(".input-staff").value
+      typeof staffs.find((staff) =>
+        staff.name
+          .toLowerCase()
+          .includes(
+            `${document.querySelector(".input-staff").value.toLowerCase()}`
+          )
       ) === "undefined"
-    ) {
+    )
       alert("This staff's name does not exist! Please fill in again!");
-    } else {
+    else {
       this.setState({
-        staffs: staffs.filter(
-          (staff) => staff.name === document.querySelector(".input-staff").value
+        staffs: staffs.filter((staff) =>
+          staff.name
+            .toLowerCase()
+            .includes(
+              `${document.querySelector(".input-staff").value.toLowerCase()}`
+            )
         ),
       });
     }
@@ -93,7 +102,7 @@ class Main extends Component {
             component={() => (
               <Staffs
                 staffs={this.state.staffs}
-                onClick={() => this.FindStaff(this.state.staffs)}
+                onClick={() => this.FindStaff(STAFFS)}
                 onClick1={() => this.Staff(this.state.staffs)}
                 onClick2={() => this.ReverseStaff(this.state.staffs)}
               />
