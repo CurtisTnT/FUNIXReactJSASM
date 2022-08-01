@@ -2,18 +2,24 @@ import React, { Component } from "react";
 import Staffs from "./StaffListComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import { STAFFS } from "../shared/staffs";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import StaffDetail from "./StaffDetailComponent";
 import Department from "./DepartmentComponent";
 import Payroll from "./PayrollComponent";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {
+    staffs: state.staffs,
+  };
+};
 
 class Main extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      staffs: STAFFS,
+      staffs: this.props.staffs,
     };
     this.FindStaff = this.FindStaff.bind(this);
   }
@@ -46,9 +52,9 @@ class Main extends Component {
     }
   }
 
-  Staff() {
+  Staff(staffs) {
     this.setState({
-      staffs: STAFFS,
+      staffs: staffs,
     });
   }
 
@@ -87,14 +93,14 @@ class Main extends Component {
           staff={this.state.staffs.find(
             (staff) => staff.id === parseInt(match.params.staffId, 10)
           )}
-          onClick={() => this.Staff(this.state.staffs)}
+          onClick={() => this.Staff(this.props.staffs)}
         />
       );
     };
 
     return (
       <div>
-        <Header onClick={() => this.Staff(this.state.staffs)} />
+        <Header onClick={() => this.Staff(this.props.staffs)} />
         <Switch>
           <Route
             exact
@@ -102,8 +108,8 @@ class Main extends Component {
             component={() => (
               <Staffs
                 staffs={this.state.staffs}
-                onClick={() => this.FindStaff(STAFFS)}
-                onClick1={() => this.Staff(this.state.staffs)}
+                onClick={() => this.FindStaff(this.props.staffs)}
+                onClick1={() => this.Staff(this.props.staffs)}
                 onClick2={() => this.ReverseStaff(this.state.staffs)}
               />
             )}
@@ -114,7 +120,7 @@ class Main extends Component {
             component={() => (
               <Payroll
                 staffs={this.state.staffs}
-                onClick={() => this.Staff(this.state.staffs)}
+                onClick={() => this.Staff(this.props.staffs)}
                 onClick1={() => this.StaffIdDecrease(this.state.staffs)}
               />
             )}
@@ -127,4 +133,4 @@ class Main extends Component {
     );
   }
 }
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
