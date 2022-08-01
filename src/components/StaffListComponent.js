@@ -109,6 +109,7 @@ class Staffs extends Component {
       annualLeave: "",
       overTime: "",
     };
+
     if (this.state.touched.fullname && fullname.length === 0)
       errors.fullname = "Yêu cầu nhập";
     else if (this.state.touched.fullname && fullname.length < 2)
@@ -153,12 +154,42 @@ class Staffs extends Component {
       salary: "",
       image: "/assets/images/alberto.png",
     };
-    this.toggleModal();
-    let staffs = this.state.staffs;
-    staffs.push(newStaff);
-    this.setState({
-      staffs: staffs,
-    });
+    const errors = this.validate(
+      this.state.fullname,
+      this.state.doB,
+      this.state.startDate,
+      this.state.salaryScale,
+      this.state.annualLeave,
+      this.state.overTime
+    );
+    if (
+      this.state.fullname === "" ||
+      this.state.doB === "" ||
+      this.state.startDate === ""
+    ) {
+      this.setState({
+        touched: {
+          fullname: true,
+          doB: true,
+          startDate: true,
+        },
+      });
+    } else if (
+      errors.fullname !== "" ||
+      errors.doB !== "" ||
+      errors.startDate !== "" ||
+      errors.salaryScale !== "" ||
+      errors.annualLeave !== "" ||
+      errors.overTime !== ""
+    ) {
+    } else {
+      let staffs = this.state.staffs;
+      staffs.push(newStaff);
+      this.setState({
+        staffs: staffs,
+      });
+      this.toggleModal();
+    }
     event.preventDefault();
   }
 
@@ -191,23 +222,23 @@ class Staffs extends Component {
           <Button
             color="danger"
             outline
-            className="col-md-2 mr-6 p-0"
+            className="col-md-3 col-12 col-lg-2 mr-6 mb-1 p-0 "
             onClick={this.toggleModal}
           >
-            <span className="fa fa-plus-square-o fa-lg mr-1"></span>Thêm mới
-            nhân viên
+            <span className="fa fa-plus-square-o fa-lg mr-1 mb-1"></span>Thêm
+            mới nhân viên
           </Button>
           <FormGroup className="row col-md-6 m-0">
             <Button
               color="danger"
               outline
               onClick={this.props.onClick}
-              className="col-md-2"
+              className="col-4 col-md-4 col-lg-2"
             >
               <span className="fa fa-search fa-lg"></span>Tìm kiếm
             </Button>
             <Input
-              className="input-staff ml-2 col-md-9"
+              className="input-staff ml-2 col-7 col-md-7 col-lg-9"
               type="text"
               name="search"
             />
